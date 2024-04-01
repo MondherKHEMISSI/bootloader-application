@@ -1,0 +1,442 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+                              build/src/sysmem.o (__errno)
+/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+                              /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o) (_impure_ptr)
+/usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                              build/src/usart.o (__aeabi_uidiv)
+/usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 build/src/ring-buffer.o
+ .data          0x0000000000000000        0x0 build/src/ring-buffer.o
+ .bss           0x0000000000000000        0x0 build/src/ring-buffer.o
+ .text          0x0000000000000000        0x0 build/src/gpio.o
+ .data          0x0000000000000000        0x0 build/src/gpio.o
+ .bss           0x0000000000000000        0x0 build/src/gpio.o
+ .text          0x0000000000000000        0x0 build/src/dma.o
+ .data          0x0000000000000000        0x0 build/src/dma.o
+ .bss           0x0000000000000000        0x0 build/src/dma.o
+ .text          0x0000000000000000        0x0 build/src/system.o
+ .data          0x0000000000000000        0x0 build/src/system.o
+ .bss           0x0000000000000000        0x0 build/src/system.o
+ .text          0x0000000000000000        0x0 build/src/sysmem.o
+ .data          0x0000000000000000        0x0 build/src/sysmem.o
+ .bss           0x0000000000000000        0x0 build/src/sysmem.o
+ .text._sbrk    0x0000000000000000       0x40 build/src/sysmem.o
+ .bss.__sbrk_heap_end
+                0x0000000000000000        0x4 build/src/sysmem.o
+ .comment       0x0000000000000000       0x34 build/src/sysmem.o
+ .ARM.attributes
+                0x0000000000000000       0x2c build/src/sysmem.o
+ .text          0x0000000000000000        0x0 build/src/syscalls.o
+ .data          0x0000000000000000        0x0 build/src/syscalls.o
+ .bss           0x0000000000000000        0x0 build/src/syscalls.o
+ .text.initialise_monitor_handles
+                0x0000000000000000        0x2 build/src/syscalls.o
+ .text._getpid  0x0000000000000000        0x4 build/src/syscalls.o
+ .text._kill    0x0000000000000000       0x10 build/src/syscalls.o
+ .text._exit    0x0000000000000000        0xc build/src/syscalls.o
+ .text._read    0x0000000000000000       0x1a build/src/syscalls.o
+ .text._write   0x0000000000000000       0x1a build/src/syscalls.o
+ .text._close   0x0000000000000000        0x6 build/src/syscalls.o
+ .text._fstat   0x0000000000000000        0xa build/src/syscalls.o
+ .text._isatty  0x0000000000000000        0x4 build/src/syscalls.o
+ .text._lseek   0x0000000000000000        0x4 build/src/syscalls.o
+ .text._open    0x0000000000000000        0xa build/src/syscalls.o
+ .text._wait    0x0000000000000000       0x10 build/src/syscalls.o
+ .text._unlink  0x0000000000000000       0x10 build/src/syscalls.o
+ .text._times   0x0000000000000000        0x6 build/src/syscalls.o
+ .text._stat    0x0000000000000000        0xa build/src/syscalls.o
+ .text._link    0x0000000000000000       0x10 build/src/syscalls.o
+ .text._fork    0x0000000000000000       0x10 build/src/syscalls.o
+ .text._execve  0x0000000000000000       0x10 build/src/syscalls.o
+ .bss.__env     0x0000000000000000        0x4 build/src/syscalls.o
+ .data.environ  0x0000000000000000        0x4 build/src/syscalls.o
+ .comment       0x0000000000000000       0x34 build/src/syscalls.o
+ .ARM.attributes
+                0x0000000000000000       0x2c build/src/syscalls.o
+ .text          0x0000000000000000        0x0 build/src/scb.o
+ .data          0x0000000000000000        0x0 build/src/scb.o
+ .bss           0x0000000000000000        0x0 build/src/scb.o
+ .text.vector_setup
+                0x0000000000000000       0x10 build/src/scb.o
+ .comment       0x0000000000000000       0x34 build/src/scb.o
+ .ARM.attributes
+                0x0000000000000000       0x2c build/src/scb.o
+ .text          0x0000000000000000        0x0 build/src/usart.o
+ .data          0x0000000000000000        0x0 build/src/usart.o
+ .bss           0x0000000000000000        0x0 build/src/usart.o
+ .text.usart_set_baudrate
+                0x0000000000000000       0x14 build/src/usart.o
+ .text          0x0000000000000000        0x0 build/src/stm32g0x1_startup.o
+ .data          0x0000000000000000        0x0 build/src/stm32g0x1_startup.o
+ .bss           0x0000000000000000        0x0 build/src/stm32g0x1_startup.o
+ .text          0x0000000000000000        0x0 build/src/flash.o
+ .data          0x0000000000000000        0x0 build/src/flash.o
+ .bss           0x0000000000000000        0x0 build/src/flash.o
+ .text          0x0000000000000000        0x0 build/src/main.o
+ .data          0x0000000000000000        0x0 build/src/main.o
+ .bss           0x0000000000000000        0x0 build/src/main.o
+ .text          0x0000000000000000        0xc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .debug_info    0x0000000000000000      0x914 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .debug_abbrev  0x0000000000000000      0x1be /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .debug_line    0x0000000000000000      0x10f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .debug_str     0x0000000000000000      0x563 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .comment       0x0000000000000000       0x34 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .debug_frame   0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .data          0x0000000000000000      0x430 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .rodata        0x0000000000000000        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .debug_info    0x0000000000000000      0x92a /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000000000      0x1b8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000000       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .debug_line    0x0000000000000000       0xe4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .debug_str     0x0000000000000000      0x57b /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .comment       0x0000000000000000       0x34 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+ .text          0x0000000000000000      0x114 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_line    0x0000000000000000       0x6c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_info    0x0000000000000000       0x26 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x0000000000000000       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_str     0x0000000000000000       0xa6 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .text          0x0000000000000000        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x0000000000000000       0x60 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x0000000000000000       0x26 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x0000000000000000       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x0000000000000000       0xa6 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x0000000020000000 0x0000000000024000 xrw
+FLASH            0x0000000008000000 0x0000000000080000 xr
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/src/ring-buffer.o
+LOAD build/src/gpio.o
+LOAD build/src/dma.o
+LOAD build/src/system.o
+LOAD build/src/sysmem.o
+LOAD build/src/syscalls.o
+LOAD build/src/scb.o
+LOAD build/src/usart.o
+LOAD build/src/stm32g0x1_startup.o
+LOAD build/src/flash.o
+LOAD build/src/main.o
+                0x0000000020024000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x0000000000000200                _Min_Heap_Size = 0x200
+                0x0000000000000400                _Min_Stack_Size = 0x400
+
+.isr_vector     0x0000000008000000       0xc0
+                0x0000000008000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000       0xc0 build/src/stm32g0x1_startup.o
+                0x0000000008000000                vectors
+                0x00000000080000c0                . = ALIGN (0x4)
+
+.text           0x00000000080000c0      0x538
+                0x00000000080000c0                . = ALIGN (0x4)
+ *(.text)
+ *(.text*)
+ .text.ring_buffer_setup
+                0x00000000080000c0        0xe build/src/ring-buffer.o
+                0x00000000080000c0                ring_buffer_setup
+ .text.ring_buffer_is_empty
+                0x00000000080000ce       0x10 build/src/ring-buffer.o
+                0x00000000080000ce                ring_buffer_is_empty
+ .text.ring_buffer_write
+                0x00000000080000de       0x24 build/src/ring-buffer.o
+                0x00000000080000de                ring_buffer_write
+ .text.ring_buffer_read
+                0x0000000008000102       0x26 build/src/ring-buffer.o
+                0x0000000008000102                ring_buffer_read
+ .text.gpio_init
+                0x0000000008000128       0xd0 build/src/gpio.o
+                0x0000000008000128                gpio_init
+ .text.led_toggle_onButton
+                0x00000000080001f8       0x1c build/src/gpio.o
+                0x00000000080001f8                led_toggle_onButton
+ .text.led_toggle
+                0x0000000008000214       0x28 build/src/gpio.o
+                0x0000000008000214                led_toggle
+ .text.dma_init
+                0x000000000800023c       0x64 build/src/dma.o
+                0x000000000800023c                dma_init
+ .text.dma_config
+                0x00000000080002a0       0x38 build/src/dma.o
+                0x00000000080002a0                dma_config
+ .text.DMA1_Channel1_IRQHandler
+                0x00000000080002d8        0x2 build/src/dma.o
+                0x00000000080002d8                DMA1_Channel1_IRQHandler
+ *fill*         0x00000000080002da        0x2 
+ .text.SysTick_Handler
+                0x00000000080002dc       0x10 build/src/system.o
+                0x00000000080002dc                SysTick_Handler
+ .text.delay    0x00000000080002ec       0x18 build/src/system.o
+                0x00000000080002ec                delay
+ .text.configure_systick
+                0x0000000008000304       0x20 build/src/system.o
+                0x0000000008000304                configure_systick
+ .text.system_setup
+                0x0000000008000324        0xc build/src/system.o
+                0x0000000008000324                system_setup
+ .text.usart2_it_config
+                0x0000000008000330       0x20 build/src/usart.o
+                0x0000000008000330                usart2_it_config
+ .text.usart2_init
+                0x0000000008000350       0x60 build/src/usart.o
+                0x0000000008000350                usart2_init
+ .text.usart2_write
+                0x00000000080003b0       0x1c build/src/usart.o
+                0x00000000080003b0                usart2_write
+ .text.usart2_read
+                0x00000000080003cc       0x1c build/src/usart.o
+                0x00000000080003cc                usart2_read
+ .text.USART2_LPUART2_IRQHandler
+                0x00000000080003e8       0x28 build/src/usart.o
+                0x00000000080003e8                USART2_LPUART2_IRQHandler
+ .text.usart2_is_data_available
+                0x0000000008000410       0x14 build/src/usart.o
+                0x0000000008000410                usart2_is_data_available
+ .text.Default_Handler
+                0x0000000008000424        0x2 build/src/stm32g0x1_startup.o
+                0x0000000008000424                TIM1_CC_IRQHandler
+                0x0000000008000424                HardFault_Handler
+                0x0000000008000424                PVD_IRQHandler
+                0x0000000008000424                PendSV_Handler
+                0x0000000008000424                NMI_Handler
+                0x0000000008000424                I2C1_IRQHandler
+                0x0000000008000424                TIM7_LPTIM2_IRQHandler
+                0x0000000008000424                DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5_IRQHandler
+                0x0000000008000424                TIM17_FDCAN_IT1_IRQHandler
+                0x0000000008000424                RCC_CRS_IRQHandler
+                0x0000000008000424                RTC_TAMP_IRQHandler
+                0x0000000008000424                SPI1_IRQHandler
+                0x0000000008000424                EXTI2_3_IRQHandler
+                0x0000000008000424                EXTI4_15_IRQHandler
+                0x0000000008000424                Default_Handler
+                0x0000000008000424                CEC_IRQHandler
+                0x0000000008000424                TIM14_IRQHandler
+                0x0000000008000424                TIM15_IRQHandler
+                0x0000000008000424                TIM3_TIM4_IRQHandler
+                0x0000000008000424                EXTI0_1_IRQHandler
+                0x0000000008000424                I2C2_I2C3_IRQHandler
+                0x0000000008000424                SVC_Handler
+                0x0000000008000424                AES_RNG_IRQHandler
+                0x0000000008000424                USART3_USART4_USART5_USART6_LPUART1__IRQHandler
+                0x0000000008000424                TIM6_DAC_LPTIM1_IRQHandler
+                0x0000000008000424                WWDG_IRQHandler
+                0x0000000008000424                SPI2_SPI3_IRQHandler
+                0x0000000008000424                TIM2_IRQHandler
+                0x0000000008000424                DMA1_Channel2_3_IRQHandler
+                0x0000000008000424                ADC_COMP_IRQHandler
+                0x0000000008000424                FLASH_IRQHandler
+                0x0000000008000424                USART1_IRQHandler
+                0x0000000008000424                TIM16_FDCAN_IT0_IRQHandler
+                0x0000000008000424                TIM1_BRK_UP_TRG_COM_IRQHandler
+                0x0000000008000424                UCPD1_UCPD2_USB_IRQHandler
+ *fill*         0x0000000008000426        0x2 
+ .text.Reset_Handler
+                0x0000000008000428       0x48 build/src/stm32g0x1_startup.o
+                0x0000000008000428                Reset_Handler
+ .text.flash_unlock
+                0x0000000008000470       0x34 build/src/flash.o
+                0x0000000008000470                flash_unlock
+ .text.flash_lock
+                0x00000000080004a4       0x14 build/src/flash.o
+                0x00000000080004a4                flash_lock
+ .text.flash_erase_page
+                0x00000000080004b8       0x54 build/src/flash.o
+                0x00000000080004b8                flash_erase_page
+ .text.flash_program_double_word
+                0x000000000800050c       0x44 build/src/flash.o
+                0x000000000800050c                flash_program_double_word
+ .text.flash_erase
+                0x0000000008000550       0x14 build/src/flash.o
+                0x0000000008000550                flash_erase
+ .text.flash_program
+                0x0000000008000564       0x20 build/src/flash.o
+                0x0000000008000564                flash_program
+ .text.flash_write
+                0x0000000008000584       0x1c build/src/flash.o
+                0x0000000008000584                flash_write
+ .text.startup.main
+                0x00000000080005a0       0x58 build/src/main.o
+                0x00000000080005a0                main
+ *(.glue_7)
+ .glue_7        0x00000000080005f8        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000000080005f8        0x0 linker stubs
+ *(.eh_frame)
+ *(.init)
+ *(.fini)
+                0x00000000080005f8                . = ALIGN (0x4)
+                0x00000000080005f8                _etext = .
+
+.vfp11_veneer   0x00000000080005f8        0x0
+ .vfp11_veneer  0x00000000080005f8        0x0 linker stubs
+
+.v4_bx          0x00000000080005f8        0x0
+ .v4_bx         0x00000000080005f8        0x0 linker stubs
+
+.iplt           0x00000000080005f8        0x0
+ .iplt          0x00000000080005f8        0x0 build/src/gpio.o
+
+.rodata         0x00000000080005f8       0x14
+                0x00000000080005f8                . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x00000000080005f8       0x11 build/src/main.o
+ *(.rodata*)
+                0x000000000800060c                . = ALIGN (0x4)
+ *fill*         0x0000000008000609        0x3 
+
+.rel.dyn        0x000000000800060c        0x0
+ .rel.iplt      0x000000000800060c        0x0 build/src/gpio.o
+
+.ARM.extab      0x000000000800060c        0x0
+                0x000000000800060c                . = ALIGN (0x4)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x000000000800060c                . = ALIGN (0x4)
+
+.ARM            0x000000000800060c        0x0
+                0x000000000800060c                . = ALIGN (0x4)
+                0x000000000800060c                __exidx_start = .
+ *(.ARM.exidx*)
+                0x000000000800060c                __exidx_end = .
+                0x000000000800060c                . = ALIGN (0x4)
+
+.preinit_array  0x000000000800060c        0x0
+                0x000000000800060c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+                0x000000000800060c                . = ALIGN (0x4)
+
+.init_array     0x000000000800060c        0x0
+                0x000000000800060c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array*)
+                [!provide]                        PROVIDE (__init_array_end = .)
+                0x000000000800060c                . = ALIGN (0x4)
+
+.fini_array     0x000000000800060c        0x0
+                0x000000000800060c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x000000000800060c                . = ALIGN (0x4)
+                0x000000000800060c                _sidata = LOADADDR (.data)
+
+.data           0x0000000020000000        0x0 load address 0x000000000800060c
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _sdata = .
+ *(.data)
+ *(.data*)
+ *(.RamFunc)
+ *(.RamFunc*)
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _edata = .
+
+.igot.plt       0x0000000020000000        0x0 load address 0x000000000800060c
+ .igot.plt      0x0000000020000000        0x0 build/src/gpio.o
+                0x0000000020000000                . = ALIGN (0x4)
+
+.bss            0x0000000020000000       0x94 load address 0x000000000800060c
+                0x0000000020000000                _sbss = .
+                0x0000000020000000                __bss_start__ = _sbss
+ *(.bss)
+ *(.bss*)
+ .bss.msTicks   0x0000000020000000        0x4 build/src/system.o
+                0x0000000020000000                msTicks
+ .bss.data_buffer
+                0x0000000020000004       0x80 build/src/usart.o
+                0x0000000020000004                data_buffer
+ .bss.rb        0x0000000020000084       0x10 build/src/usart.o
+                0x0000000020000084                rb
+ *(COMMON)
+                0x0000000020000094                . = ALIGN (0x4)
+                0x0000000020000094                _ebss = .
+                0x0000000020000094                __bss_end__ = _ebss
+
+._user_heap_stack
+                0x0000000020000094      0x604 load address 0x000000000800060c
+                0x0000000020000098                . = ALIGN (0x8)
+ *fill*         0x0000000020000094        0x4 
+                [!provide]                        PROVIDE (end = .)
+                0x0000000020000098                PROVIDE (_end = .)
+                0x0000000020000298                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020000098      0x200 
+                0x0000000020000698                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020000298      0x400 
+                0x0000000020000698                . = ALIGN (0x8)
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.ARM.attributes
+                0x0000000000000000       0x2c
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x0000000000000000       0x2c build/src/ring-buffer.o
+ .ARM.attributes
+                0x000000000000002c       0x2c build/src/gpio.o
+ .ARM.attributes
+                0x0000000000000058       0x2c build/src/dma.o
+ .ARM.attributes
+                0x0000000000000084       0x2c build/src/system.o
+ .ARM.attributes
+                0x00000000000000b0       0x2c build/src/usart.o
+ .ARM.attributes
+                0x00000000000000dc       0x2c build/src/stm32g0x1_startup.o
+ .ARM.attributes
+                0x0000000000000108       0x2c build/src/flash.o
+ .ARM.attributes
+                0x0000000000000134       0x2c build/src/main.o
+OUTPUT(build/flash-usart.elf elf32-littlearm)
+LOAD linker stubs
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a
+
+.comment        0x0000000000000000       0x33
+ .comment       0x0000000000000000       0x33 build/src/ring-buffer.o
+                                         0x34 (size before relaxing)
+ .comment       0x0000000000000033       0x34 build/src/gpio.o
+ .comment       0x0000000000000033       0x34 build/src/dma.o
+ .comment       0x0000000000000033       0x34 build/src/system.o
+ .comment       0x0000000000000033       0x34 build/src/usart.o
+ .comment       0x0000000000000033       0x34 build/src/stm32g0x1_startup.o
+ .comment       0x0000000000000033       0x34 build/src/flash.o
+ .comment       0x0000000000000033       0x34 build/src/main.o
