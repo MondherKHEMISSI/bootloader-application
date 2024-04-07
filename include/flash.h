@@ -24,8 +24,12 @@ void flash_erase_page(uint32_t page);
 void flash_program_double_word(uint32_t addr, uint64_t data);
 void flash_program(uint32_t addr, uint8_t* data, uint32_t length);
 
-void flash_erase(uint32_t page);
+void flash_page_erase(uint32_t page);
 void flash_write(const uint32_t addr, uint8_t* data, const uint32_t length);
+void flash_read(const uint32_t addr, uint8_t* data, uint32_t size);
+void flash_clear_status_flags(void);
+void flash_erase_mass(void);
+void flash_mass_erase(void);
 
 
 
