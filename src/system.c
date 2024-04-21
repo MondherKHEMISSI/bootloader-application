@@ -26,6 +26,10 @@ void SysTick_Handler(void){
 	msTicks++;
 }
 
+uint32_t getSysTick(void){
+	return msTicks;
+}
+
 void delay(int ms){
 	uint32_t expected_ticks = msTicks + ms;
 	while(msTicks < expected_ticks) {

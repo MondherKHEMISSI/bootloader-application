@@ -1,51 +1,123 @@
 #include "logger.h"
+#include "common-defines.h"
+#include "flash.h"
+#include "system.h"
 
-void logger_init(logger_buffer_t* bfr, logger_event_t* buffer, uint32_t bufferSize){
-	bfr->buffer = buffer;
-	bfr->currentIndex = 0;
-	
-	for (uint16_t i = 0; i < bufferSize; i++){
-		bfr->buffer[i].data = (uint8_t*)"CONTINENTAL/CELAD!";
-		bfr->buffer[i].eventID =  i;
-		bfr->buffer[i].priority = i;
-		bfr->buffer[i].moduleID = i;
-		bfr->buffer[i].timestamp = false; 
-	}		
+#define BUFFER_SIZE         (10)
+
+#define COUNTER_PAGE        (383)
+#define COUNTER_ADDR        (0x0807FBF0)
+#define START_ADDR          (0x08000A00)
+#define PAGE_SIZE           (0x800)
+
+
+
+logger_ring_buffer_t lg_rb[1] = {0};
+logger_event_t buffer[BUFFER_SIZE] = {0};
+uint32_t counter = 0;
+
+
+
+void logger_ring_buffer_init(){
+	lg_rb->buffer = buffer;
+    lg_rb->writeIndex = 0;
+    lg_rb->readIndex = 0;
+    lg_rb->full = false;
+
+    uint32_t counter = 0;
+
+    flash_write(COUNTER_ADDR, (uint8_t*)&counter, 4);
+
+}
+
+bool logger_ring_buffer_write(uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority){
+    uint8_t local_write_index = lg_rb->writeIndex;
+    uint8_t local_read_index = lg_rb->readIndex;
+
+    uint8_t next_write_index = (lg_rb->writeIndex + 1) % BUFFER_SIZE;
+   
+    if (logger_ring_buffer_is_full()){
+        return false;
+    }
+
+
+    lg_rb->buffer[local_write_index].timestamp = getSysTick();
+    lg_rb->buffer[local_write_index].moduleID = moduleID;
+    lg_rb->buffer[local_write_index].eventID = eventID;
+    lg_rb->buffer[local_write_index].dataSize = dataSize;
+    lg_rb->buffer[local_write_index].data = data;
+    lg_rb->buffer[local_write_index].priority = priority;
+
+    lg_rb->writeIndex = next_write_index;
+
+    if (next_write_index == local_read_index){
+        lg_rb->full = true;
+    }
+    return true;
 }
 
 
+bool logger_ring_buffer_read(logger_event_t* event){
+    /* uint8_t local_write_index = lg_rb->writeIndex; */
+    uint8_t local_read_index= lg_rb->readIndex;
+    
+    if (logger_ring_buffer_is_empty())
+        return false; 
 
-void logger_update_counter(uint32_t counter){
-	flash_page_erase(COUNTER_PAGE);
-	flash_write((uint32_t)COUNTER_ADDR, &counter, COUNTER_SIZE);
-	
+    
+    event->timestamp  = lg_rb->buffer[local_read_index].timestamp;
+    event->moduleID   = lg_rb->buffer[local_read_index].moduleID;
+    event->eventID    = lg_rb->buffer[local_read_index].eventID;
+    event->dataSize   = lg_rb->buffer[local_read_index].dataSize;
+    event->data       = lg_rb->buffer[local_read_index].data;
+    event->priority   = lg_rb->buffer[local_read_index].priority;
+
+    lg_rb->buffer[local_read_index].timestamp  = 0;   
+    lg_rb->buffer[local_read_index].moduleID   = 0;
+    lg_rb->buffer[local_read_index].eventID    = 0;
+    lg_rb->buffer[local_read_index].dataSize   = 0;
+    lg_rb->buffer[local_read_index].data       = 0;
+    lg_rb->buffer[local_read_index].priority   = 0;
+
+
+
+
+    lg_rb->readIndex = (local_read_index + 1) % BUFFER_SIZE;
+
+    lg_rb->full = false;
+
+    return true;
+
 }
 
-void logger_write(logger_buffer_t* bfr, uint32_t bufferSize) {
-	uint32_t counter = 0;
-	flash_read((uint32_t)COUNTER_ADDR, &counter, 4);
-	for(uint16_t i = 0; i < bufferSize; i++){
-		char* data = strncat(bfr->buffer[i].eventID, bfr->buffer[i].data, 16);
+bool logger_ring_buffer_is_empty(){
+    return (lg_rb->writeIndex == lg_rb->readIndex) && (!logger_ring_buffer_is_full());
+}
+
+bool logger_ring_buffer_is_full(){
+    return lg_rb->full;
+}
+
+bool DBG_LOG_EVENT(uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority){
+
+	bool lub_Ret = logger_ring_buffer_write(moduleID, eventID, dataSize, data, priority);
+
+	if (logger_ring_buffer_is_full() == true){
+		uint32_t counter = 0;
+		flash_read(COUNTER_ADDR, (uint8_t*)&counter, 4);
+
+		flash_write(START_ADDR + counter, (uint8_t*)lg_rb->buffer, sizeof(logger_event_t) * BUFFER_SIZE);
+		counter += sizeof(logger_event_t) * BUFFER_SIZE;
 		
-		flash_write((uint32_t)START_ADDR + (uint32_t)counter, (uint8_t*)data, EVENT_SIZE);
-		counter += EVENT_SIZE;	
-	}
-	logger_update_counter(counter);
-}
-
-
-void logger_print(logger_buffer_t* bfr, uint32_t bufferSize) {
-	for (uint32_t i = 0; i < bufferSize; i++){
-		/*printf("|%s|%d|%d|%d|%s|", bfr->buffer[i].data,
-					   bfr->buffer[i].eventID,
-					   bfr->buffer[i].priority,
-					   bfr->buffer[i].moduleID,
-					   bfr->buffer[i].timestamp ? "true" : "false");
+		flash_mass_erase();
+		flash_write(COUNTER_ADDR, (uint8_t*)&counter, 4);
 		
-		*/
-		printf("%p", bfr->buffer[i]);			   
-		printf("\n");
+		lg_rb->full = false;
 	}
 	
-}
+		
 
+
+
+	return lub_Ret;
+}

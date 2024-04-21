@@ -41,6 +41,7 @@
 void rcc_setup(void);
 void configure_systick(uint32_t ticks);
 void system_setup(void);
+uint32_t getSysTick(void);
 void delay(int ms);
 
 

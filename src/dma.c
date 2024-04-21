@@ -4,7 +4,7 @@
 #define DMA1_EN                 (1U << 0)
 #define DMA_CCR1_DIR            (1U << 4)
 #define DMA_CCR1_CIRC           (1U << 5)
-#define DMA_CCR1_PSIZE          ((1 << 8) | (1 << 9))
+#define DMA_CCR1_PSIZE          ((1 << 8)  | (1 << 9))
 #define DMA_CCR1_MSIZE          ((1 << 10) | (1 << 11))
 #define DMA_CCR1_PL             ((1 << 12) | (1 << 13)) 
 #define DMA_CCR1_EN             (1U << 0)
