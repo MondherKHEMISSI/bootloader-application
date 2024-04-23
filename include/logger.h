@@ -25,10 +25,12 @@ typedef struct logger_ring_buffer_t{
 
 
 
-bool logger_ring_buffer_write(uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority);
-bool logger_ring_buffer_read(logger_event_t* event);
-bool logger_ring_buffer_is_empty();
-bool logger_ring_buffer_is_full();
+void logger_ring_buffer_init(logger_ring_buffer_t* lg_rb);
+bool logger_ring_buffer_write(logger_ring_buffer_t* lg_rb, uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority);
+bool logger_ring_buffer_read(logger_ring_buffer_t* lg_rb, logger_event_t* event);
+bool logger_ring_buffer_is_empty(logger_ring_buffer_t* lg_rb);
+bool logger_ring_buffer_is_full(logger_ring_buffer_t* lg_rb);
+void logger_flash(logger_ring_buffer_t* lg_rb);
 
 
 #endif

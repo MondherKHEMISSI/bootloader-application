@@ -36,7 +36,7 @@ int main(void)
 
 	flash_mass_erase();
 
-	logger_ring_buffer_init();
+	logger_init();
 
 	/*
 	dma_init();

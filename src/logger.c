@@ -12,13 +12,15 @@
 
 
 
-logger_ring_buffer_t lg_rb[1] = {0};
+logger_ring_buffer_t lg_rb         = {0};
 logger_event_t buffer[BUFFER_SIZE] = {0};
 uint32_t counter = 0;
 
 
-
-void logger_ring_buffer_init(){
+void logger_init(void){
+    logger_ring_buffer_init(&lg_rb);
+}
+void logger_ring_buffer_init(logger_ring_buffer_t* lg_rb ){
 	lg_rb->buffer = buffer;
     lg_rb->writeIndex = 0;
     lg_rb->readIndex = 0;
@@ -30,13 +32,13 @@ void logger_ring_buffer_init(){
 
 }
 
-bool logger_ring_buffer_write(uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority){
+bool logger_ring_buffer_write(logger_ring_buffer_t* lg_rb , uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority){
     uint8_t local_write_index = lg_rb->writeIndex;
     uint8_t local_read_index = lg_rb->readIndex;
 
     uint8_t next_write_index = (lg_rb->writeIndex + 1) % BUFFER_SIZE;
    
-    if (logger_ring_buffer_is_full()){
+    if (logger_ring_buffer_is_full(lg_rb)){
         return false;
     }
 
@@ -57,11 +59,11 @@ bool logger_ring_buffer_write(uint8_t moduleID, uint8_t eventID, uint8_t dataSiz
 }
 
 
-bool logger_ring_buffer_read(logger_event_t* event){
+bool logger_ring_buffer_read(logger_ring_buffer_t* lg_rb, logger_event_t* event){
     /* uint8_t local_write_index = lg_rb->writeIndex; */
     uint8_t local_read_index= lg_rb->readIndex;
     
-    if (logger_ring_buffer_is_empty())
+    if (logger_ring_buffer_is_empty(lg_rb))
         return false; 
 
     
@@ -90,34 +92,34 @@ bool logger_ring_buffer_read(logger_event_t* event){
 
 }
 
-bool logger_ring_buffer_is_empty(){
-    return (lg_rb->writeIndex == lg_rb->readIndex) && (!logger_ring_buffer_is_full());
+bool logger_ring_buffer_is_empty(logger_ring_buffer_t* lg_rb){
+    return (lg_rb->writeIndex == lg_rb->readIndex) && (!logger_ring_buffer_is_full(lg_rb));
 }
 
-bool logger_ring_buffer_is_full(){
+bool logger_ring_buffer_is_full(logger_ring_buffer_t* lg_rb){
     return lg_rb->full;
 }
 
 bool DBG_LOG_EVENT(uint8_t moduleID, uint8_t eventID, uint8_t dataSize, uint32_t data, uint8_t priority){
 
-	bool lub_Ret = logger_ring_buffer_write(moduleID, eventID, dataSize, data, priority);
+	bool lub_Ret = logger_ring_buffer_write(&lg_rb, moduleID, eventID, dataSize, data, priority);
 
-	if (logger_ring_buffer_is_full() == true){
-		uint32_t counter = 0;
-		flash_read(COUNTER_ADDR, (uint8_t*)&counter, 4);
-
-		flash_write(START_ADDR + counter, (uint8_t*)lg_rb->buffer, sizeof(logger_event_t) * BUFFER_SIZE);
-		counter += sizeof(logger_event_t) * BUFFER_SIZE;
-		
-		flash_mass_erase();
-		flash_write(COUNTER_ADDR, (uint8_t*)&counter, 4);
-		
-		lg_rb->full = false;
+	if (logger_ring_buffer_is_full(&lg_rb) == true){
+		logger_flash(&lg_rb);
 	}
 	
-		
-
-
-
+	
 	return lub_Ret;
+}
+
+void logger_flash(logger_ring_buffer_t* lg_rb){
+    uint32_t counter = 0;
+	flash_read(COUNTER_ADDR, (uint8_t*)&counter, 4);
+	flash_write(START_ADDR + counter, (uint8_t*)lg_rb->buffer, sizeof(logger_event_t) * BUFFER_SIZE);
+	counter += sizeof(logger_event_t) * BUFFER_SIZE;
+	
+	flash_mass_erase();
+	flash_write(COUNTER_ADDR, (uint8_t*)&counter, 4);
+	
+	lg_rb->full = false;
 }
