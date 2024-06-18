@@ -1,69 +1,73 @@
-import matplotlib.pyplot as plt
-import struct
+import os
+import re
 
-def parse_binary_file(file_path):
-    # Open the binary file in binary read mode
-    with open(file_path, 'rb') as file:
-        # Read the content of the file
-        binary_data = file.read()
+def parse_header_file(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+        typedef_enum_pattern = r'typedef\s+enum\s*{([^}]*)}[^;]*;'
+        typedef_enum_match = re.search(typedef_enum_pattern, content, re.DOTALL)
 
-        # Example parsing: reading byte by byte
-        record_size = 16  # Total size of each record in bytes
-        num_records = len(binary_data) // record_size
+        if typedef_enum_match:
+            #print("Found typedef enum:")
+            enum_values = typedef_enum_match.group(1).strip().split(',')
+            enum_values_dict = {}
 
-        # Print the header
-        print("Record  | TimeStamp     | Module ID | Event ID | Data Size |        Data        | Priority")
-        print("-" * 94)  # Separator line
+            value = 0
+            for enum_value in enum_values:
+                enum_value = enum_value.strip().split('=')
+                if len(enum_value) == 1:
+                    enum_name = enum_value[0].strip()
+                    enum_values_dict[enum_name] = value
+                    value += 1
+                else:
+                    enum_name = enum_value[0].strip()
+                    enum_val = int(enum_value[1].strip())
+                    enum_values_dict[enum_name] = enum_val
+                    value = enum_val + 1
+            '''
+            for key, val in enum_values_dict.items():
+                print(f"{key} = {val}")
+            '''
+            return enum_values_dict
+        else:
+            print("No typedef enum found in the file.")
+            return None
 
+def extract_module_name(enum_name):
+    # Search for the entire module name that contains 'bb' in a case-insensitive manner
+    match = re.search(r'(?i)(bb\w*)', enum_name)
+    
+    if match:
+        # If a match is found, return the matched module name
+        return match.group(1)
+    else:
+        # If no match is found, return None
+        return None
 
-          # Initialize counters for module ID 7 and module ID 5
-        module_7_count = 0
-        module_5_count = 0
+def find_header_file(project_path, target_file_name):
+    target_file_lower = (target_file_name + ".h").lower()
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            if file.lower() == target_file_lower:
+                return os.path.join(root, file)
+    return None
 
-        # Lists to store timestamp and corresponding counts
-        timestamps = []
-        module_7_counts = []
-        module_5_counts = []
+# Specify the project directory and the header file to search for
+project_path = '.'
+header_file_name = 'logger_api'
+file_path = find_header_file(project_path, header_file_name)
+enum_values = parse_header_file(file_path)
+enums_mapping = {}
+if enum_values:
+    for enum_name, value in enum_values.items():
+        module_name = extract_module_name(enum_name)
+        if module_name:
+            #print(f"Extracted module name for {enum_name}: {module_name}")
+            file_path = find_header_file(project_path, module_name)
+            #print(file_path)
+            if file_path:
+                enums_mapping[value] = parse_header_file(file_path)
+        else:
+            print(f"Module name not found in the enum {enum_name}.")
 
-        # Iterate through the binary data
-        for i in range(num_records):
-            # Extract the data for each record
-            record_start = i * record_size
-            record = binary_data[record_start:record_start + record_size]
-
-
-            
-            # Extract the individual fields from the record
-            timestamp = record[:4]
-            module_id = record[4]
-            event_id = record[5]
-            data_size = record[6]
-            data = record[8:12]
-            priority = record[12:]
-
-            # Print the formatted record
-            print(f"{i + 1:<7}| {' '.join(f'{byte:02X}' for byte in timestamp):13} | {module_id:9} | {event_id:9} | {data_size:9} | {' '.join(f'{byte:02X}' for byte in data):18} | {' '.join(f'{byte:02X}' for byte in priority)}")
-
-             # Update counters based on module ID
-            if module_id == 7:
-                module_7_count += 1
-            elif module_id == 5:
-                module_5_count += 1
-
-            # Append timestamp and corresponding counts
-            timestamps.append(struct.unpack('<I', timestamp)[0] / 60000)  # Unpack timestamp as unsigned integer
-            module_7_counts.append(module_7_count)
-            module_5_counts.append(module_5_count)
-
-            print()  # Empty line for readability
-
-         # Plot the counts over time
-        plt.plot(timestamps, module_7_counts, label='Module ID 7')
-        plt.plot(timestamps, module_5_counts, label='Module ID 5')
-        plt.xlabel('Time (minutes)')
-        plt.ylabel('Count')
-        plt.title('Module ID 7 and Module ID 5 Counts Over Time')
-        plt.legend()
-        plt.show()
-# Appel de la fonction avec le chemin vers le fichier binaire
-parse_binary_file('/home/mondher/bootloader-application/memoryTest.bin')
+print(enums_mapping)

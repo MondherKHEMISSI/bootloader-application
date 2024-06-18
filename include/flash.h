@@ -16,6 +16,12 @@
 #define FLASH_CR_OFFSET            (0x014)
 #define FLASH_CR                   (*(volatile unsigned int*) (FLASH_PERIPHERAL + FLASH_CR_OFFSET))
 
+typedef enum {
+    E_BBFLASHDRV_EVENT_ERASE = 0,
+    E_BBFLASHDRV_EVENT_READ,
+    E_BBFLASHDRV_EVENT_WRITE
+}E_BBFLASHDRV_EVENT_ID;
+
 
 /*Prototypes*/
 void flash_unlock(void);
